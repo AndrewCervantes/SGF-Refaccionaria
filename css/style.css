@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+nav{
+  background: #263576;
+  height: 80px;
+  width: 100%;
+}
+label.logo{
+  color: #f2f2f2;
+  font-size: 33px;
+  line-height: 80px;
+  padding: 0 20px;
+  font-weight: 600;
+}
+nav ul{
+  float: right;
+  margin-right: 60px;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 2px;
+}
+nav ul li a{
+  color: #f2f2f2;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 7px 13px;
+  border-radius: 3px;
+}
+a.active,a:hover{
+  background: #1b9bff;
+  transition: .5s;
+}
+.checkbtn{
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+
+@media (max-width: 952px){
+  label.logo{
+    font-size: 27px;
+    padding-left: 25px;
+  }
+  nav ul li a{
+    font-size: 16px;
+  }
+}
+@media (max-width: 858px){
+  .checkbtn{
+    display: block;
+    margin-right: 40px;
+  }
+  ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #1b9bff;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  a:hover,a.active{
+    background: none;
+    color: #263576;
+  }
+  #check:checked ~ ul{
+    left: 0;
+  }
+}
+section{
+  background-size: cover;
+  height: calc(100vh - 80px);
+}
+
+label.titles{
+    color: #263576;
+    font-size: 20px;
+    line-height: 80px;
+    padding: 0 20px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+  }
+
+.image {
+    width: 100%;
+    max-width: 80px;
+    height: auto;
+  }
+
+footer{
+    background: #263576;
+    width: 100%;
+    height: 40px;
+    color: #f2f2f2;
+    position: absolute;
+}
+
+.dad {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.child{
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.container{
+  justify-content:center;
+}
+
+
+/* ----------------------------- */
+/*
+    Paleta de colores:
+    #263576
+    #1B9BFF
+    #A9DAFF
+    #E6E6E6
+    #FFFFFF
+*/
+/* @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap'); */
+body{
+	background-color: #ffffff;
+	font-family: 'Poppins', sans-serif;
+}
+
+#main-container{
+	margin: 50px auto;
+	width: 600px;
+}
+
+table.container{
+	background-color: white;
+	text-align: left;
+	border-collapse: collapse;
+
+    border: #E6E6E6 2px solid;
+}
+
+th, td{
+    padding: 10px; 
+}
+
+thead{
+	background-color: #1b9bff;
+	/* border-bottom: solid 5px #263576; */
+	color: white;
+}
+
+tr:nth-child(even){
+	background-color: #E6E6E6;
+}
+
+tr:hover td{
+	background-color: #A9DAFF;
+	color: black;
+}
+
+.paginacion{
+  background-color: white;
+}
+
+.scrollable{
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.pie{
+  margin-top: 30px;
+  text-align: center;
+}
+
+
+/*Factura*/
