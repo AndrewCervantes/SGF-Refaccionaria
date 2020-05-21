@@ -42,7 +42,7 @@
         <nav class="navbar navbar-light bg-light">
           <form class="form-inline" action="#" autocomplete="off" method="POST" >
             <input class="form-control mr-sm-2" type="text" placeholder="Consultar Inventario"  id="producto_id">
-            <button class="btn btn-info my-2 my-sm-0" type="button" name="add" id="add">Agregar Producto</button>
+            <button class="btn btn-info my-2 my-sm-0" type="button" name="add" id="add" >Agregar Producto</button>
           </form>
         </nav>
 
@@ -59,11 +59,10 @@
         <div class="container">
             <input class="btn btn-info my-2 my-sm-0" id="b" type="button" onclick="window.print()" value="Imprime tu pdf">
             <input class="btn btn-info my-2 my-sm-0" type="text" value="Nueva Factura">
-            <input class="btn btn-info my-2 my-sm-0" type="text" value="Generar Factura">
         </div>
 
         <!-- Factura -->
-        <form name="add_name" id="add_name" class="container">
+        <form name="add_name" id="add_name" class="container" action="generar.php">
          <p id="sv">Super Vocho</p>
 		        <p id="ubicacion">Carr. Fed.Méx - Pachuca km 32 Col. Loma Bonita, Tecamac, Edo. Mex</p>
 		        <p id="Datos">Equipo: 1</p>
@@ -122,6 +121,7 @@
                         </tbody>
                     </table>
                 </div>
+                <input class="btn btn-info my-2 my-sm-0" type="submit" value="Generar Factura" id="submit">
             </form>
 
 

@@ -59,16 +59,20 @@ $(document).on('keyup','#id_busqueda', function(){
 
 /* Funciones de Facturas */
 $(document).ready(function(){
-    var i = 1;
+    var i = 0;
+    var j = 0;
     $('#add').click(function () {
         i++;
         $('#dynamic_field').append('<tr id="row'+i+'">' +
-                                                '<td><input class="form-control" type="text" name="producto[]" disabled="disabled"> </td>' +
-                                                '<td><input class="form-control" type="text" name="descripcion[]"></td>' +
-                                                '<td><input class="form-control" type="text" name="cantidad[]"></td>'+
-                                                '<td><input class="form-control" type="text" name="precio[]"></td>'+
+                                                '<td><input class="form-control" id="producto'+i+'" type="text" name="producto[]"  ></td>' +
+                                                '<td><input class="form-control" id="descripcion'+i+'" type="text" name="descripcion[]"></td>' +
+                                                '<td><input class="form-control" id="cantidad'+i+'" type="text" name="cantidad[]"></td>'+
+                                                '<td><input class="form-control" id="precio'+i+'" type="text" name="precio[]"></td>'+
                                                 '<td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td>' +
                                                 '</tr>');
+        var nombre = document.getElementById("producto_id").value;
+        console.log(document.getElementById("producto"+i));
+        document.getElementById("producto"+i).value = nombre;
     });
                 
         $(document).on('click', '.btn_remove', function () {
@@ -78,7 +82,7 @@ $(document).ready(function(){
         
         $('#submit').click(function(){
             $.ajax({
-                url:"name.php",
+                url:"generar.php",
                 method:"POST",
                 data:$('#add_name').serialize(),
                 success:function(data){
@@ -88,6 +92,3 @@ $(document).ready(function(){
             });
         });
 })
-
-
-
