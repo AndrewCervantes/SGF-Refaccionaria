@@ -22,13 +22,19 @@
     $pre=(($precio !== false)? $precio :", &nbsp;");
 
     //CONCATENAR LOS VALORES EN ORDEN PARA SU FUTURA INSERCION//
-    $valores='('+$pro+',"'+$des+'","'+$cant+'","'+$pre+'"),';
+    $valores='("'.$pro.'","'.$des.'","'.$cant.'","'.$pre.'"),';
 
     //YA QUE TERMINA CON COMA CADA FILA, SE RESTA CON LA FUNCION SUBSTR EN LA ULTIMA FILA//
     $valoresQ= substr($valores, 0, -1);
-
+        echo $valores;
+        $producto = next($productos);
+        $descripcion = next($descripciones);
+        $cantidad = next($cantidades);
+        $precio = next($precios);
+        if($producto === false && $descripcion === false && $cantidad === false && $precio === false){
+            break;
+        }
     }
-    echo $valores;
     $sql= "INSERT INTO alumnos (, nombre, carrera, grupo) VALUES $valores";
     
 ?>

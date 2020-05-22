@@ -62,7 +62,7 @@
         </div>
 
         <!-- Factura -->
-        <form name="add_name" id="add_name" class="container" action="generar.php">
+        <form name="add_name" id="add_name" class="container" action="generar.php" method="POST">
          <p id="sv">Super Vocho</p>
 		        <p id="ubicacion">Carr. Fed.Méx - Pachuca km 32 Col. Loma Bonita, Tecamac, Edo. Mex</p>
 		        <p id="Datos">Equipo: 1</p>
