@@ -19,6 +19,7 @@
         <script src="librerias/bootstrap/js/bootstrap.js"></script>
         <script src="librerias/alertifyjs/alertify.js"></script>
         <script src="js/funciones.js"></script>
+        <script src='js/footer.js'></script>
 
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" href="img/vochon.png">
@@ -39,12 +40,14 @@
                 }
             } 
         ?>
+        <div class="search">
         <div class="navbar navbar-light bg-light">
             <form class="form-inline" action="#" autocomplete="off" method="POST">
                <input class="form-control mr-sm-2" type="text" placeholder="Consultar Inventario" id="producto_id">
                 <button class="btn btn-info my-2 my-sm-0" type="button" name="add" id="add">Agregar Producto</button>
             </form>
         </div>  
+        </div>
 
 
         <script type="text/javascript">

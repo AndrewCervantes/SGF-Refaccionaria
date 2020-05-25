@@ -16,15 +16,16 @@ body{
 
 nav{
   background: #263576;
-  height: 80px;
+  height: 90px;
   width: 100%;
+  padding-left: 20px;
 }
 
 label.logo{
   color: #f2f2f2;
   font-size: 33px;
   line-height: 80px;
-  padding: 0 20px;
+  padding: 0px 10px;
   font-weight: 600;
 }
 
@@ -79,6 +80,7 @@ footer{
   width: 100%;
   color: #f2f2f2;
   position: absolute;
+  text-align: center;
 }
 
 /* Colocar el logo */
@@ -109,7 +111,6 @@ table.container{
 	text-align: left;
 	border-collapse: collapse;
   border: #E6E6E6 2px solid;
-  /* width: 800px; */
 }
 
 th, td{
@@ -118,7 +119,7 @@ th, td{
 }
 
 thead{
-	background-color: #1b9bff;
+	background-color: #263576;
   color: white;
 }
 
@@ -149,7 +150,7 @@ tr:hover td{
 }
 
 .contenidofactura{
-  margin: 3% 10% 3% 10%;
+  margin: 1% 10% 3% 10%;
   padding: 20px;
   border-color: gray;
   border-width: 5px;
@@ -167,9 +168,28 @@ p{
 }
 
 #sv{
-text-align: center;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 #dynamic_field{
   text-align: center;
+}
+
+#submit{
+  margin: 1% 0% 1% 85%!important;
+}
+
+.search{
+  margin: 1% 0% 1% 60%!important;
+}
+
+.search2{
+  margin: 1% 22% 1% 15%!important;
+}
+
+h5{
+  font-weight: lighter!important;
+  margin-top: 7px;
 }
