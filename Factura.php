@@ -39,12 +39,13 @@
                 }
             } 
         ?>
-        <nav class="navbar navbar-light bg-light">
-          <form class="form-inline" action="#" autocomplete="off" method="POST" >
-            <input class="form-control mr-sm-2" type="text" placeholder="Consultar Inventario"  id="producto_id">
-            <button class="btn btn-info my-2 my-sm-0" type="button" name="add" id="add" >Agregar Producto</button>
-          </form>
-        </nav>
+        <div class="navbar navbar-light bg-light">
+            <form class="form-inline" action="#" autocomplete="off" method="POST">
+               <input class="form-control mr-sm-2" type="text" placeholder="Consultar Inventario" id="producto_id">
+                <button class="btn btn-info my-2 my-sm-0" type="button" name="add" id="add">Agregar Producto</button>
+            </form>
+        </div>  
+
 
         <script type="text/javascript">
             /* Funcion buscador */
@@ -56,80 +57,72 @@
                 });
             });
         </script>
-        <div class="container">
-            <input class="btn btn-info my-2 my-sm-0" id="b" type="button" onclick="window.print()" value="Imprime tu pdf">
-            <input class="btn btn-info my-2 my-sm-0" type="text" value="Nueva Factura">
+        <!-- Factura -->
+        <div class="contenidofactura">
+            <p id="sv">Super Vocho</p>
+            <div class="encabezadoFactura">
+                <form name="add_name" id="add_name" class="container" action="generar.php" method="POST"> 
+                    <p id="ubicacion">Carr. Fed.Méx - Pachuca km 32 Col. Loma Bonita, Tecamac, Edo. Mex</p>
+                    <p id="Datos">Equipo: 1</p>
+                    <p id="Datos">Fecha:
+                        <script>
+                            var f = new Date();
+                            if (f.getMonth()<10) {
+                                document.write(f.getDate() + "/0" + (f.getMonth() +1) + "/" + f.getFullYear());
+                            }
+                            else{
+                                document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+                            }
+                        </script>
+                    </p>
+                    <p id="Datos">Hora:
+                        <script>
+                            var d = new Date();
+                            if(d.getMinutes()<10){
+                                if(d.getHours()<10){
+                                    document.write("0"+ d.getHours() + ":" + (d.getMinutes() +1) + ":" + d.getSeconds());
+                                }
+                                else{
+                                    document.write(d.getHours() + ":0" + (d.getMinutes() +1) + ":" + d.getSeconds());
+                                }   
+                            }
+                            else{
+                                if(d.getHours()<10){
+                                    document.write("0"+ d.getHours() + ":" + (d.getMinutes() +1) + ":" + d.getSeconds());
+                                }
+                                else{
+                                    document.write(d.getHours() + ":" + (d.getMinutes() +1) + ":" + d.getSeconds());
+                                }     
+                            }
+                        </script>
+                    </p>
+                    <p id="Datos">Numero de factura 
+                         <script>
+                            var i=1;
+                            document.write(i)
+                        </script>
+                    </p>
+                    <input class="btn btn-info my-2 my-sm-0" type="submit" value="Generar Factura" id="submit">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dynamic_field">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Descripción</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>  
         </div>
 
-        <!-- Factura -->
-        <form name="add_name" id="add_name" class="container" action="generar.php" method="POST">
-         <p id="sv">Super Vocho</p>
-		        <p id="ubicacion">Carr. Fed.Méx - Pachuca km 32 Col. Loma Bonita, Tecamac, Edo. Mex</p>
-		        <p id="Datos">Equipo: 1</p>
-		        <p id="Datos">Fecha:
-			        <script>
-				        var f = new Date();
-				        if (f.getMonth()<10) {
-					        document.write(f.getDate() + "/0" + (f.getMonth() +1) + "/" + f.getFullYear());
-				        }
-				        else{
-					        document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-				        }
-			        </script>
-		        </p>
-		        <p id="Datos">Hora:
-			        <script>
-                        var d = new Date();
-                        if(d.getMinutes()<10){
-                            if(d.getHours()<10){
-					        document.write("0"+ d.getHours() + ":" + (d.getMinutes() +1) + ":" + d.getSeconds());
-				             }
-				            else{
-					        document.write(d.getHours() + ":0" + (d.getMinutes() +1) + ":" + d.getSeconds());
-                            }   
-                        }
-				        else{
-                            if(d.getHours()<10){
-					            document.write("0"+ d.getHours() + ":" + (d.getMinutes() +1) + ":" + d.getSeconds());
-				            }
-				            else{
-					            document.write(d.getHours() + ":" + (d.getMinutes() +1) + ":" + d.getSeconds());
-                            }  
-                        }
-			        </script>
-		        </p>
-		        <p id="Datos">Numero de factura 
-			        <script>
-				        var i=1;
-				        document.write(i)
-			        </script>
-
-		        </p>
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dynamic_field">
-                        <thead>
-                            <tr>
-                                <th>Producto</th>
-                                <th>Descripción</th>
-                                <th>Cantidad</th>
-                                <th>Precio</th>
-                                <th>Eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                        </tbody>
-                    </table>
-                </div>
-                <input class="btn btn-info my-2 my-sm-0" type="submit" value="Generar Factura" id="submit">
-            </form>
-
-
         <!--Botones Externos al formulario-->
-	
-	
-		
-
         <?php include("footer.php"); ?>
     </body>
 </html>

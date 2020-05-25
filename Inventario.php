@@ -19,14 +19,14 @@
       <!-- Header  -->
         <?php include("header.php"); ?>
       <!-- Busqueda  -->
-        <nav class="navbar navbar-light bg-light">
+        <div class="navbar navbar-light bg-light">
           <form class="form-inline">
             <input class="form-control mr-sm-2" type="text" placeholder="Busqueda" name="busqueda" id="id_busqueda">
             <button class="btn btn-info my-2 my-sm-0" type="submit">Buscar</button>
           </form>
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#add">Agregar
           </button>
-        </nav>
+        </div>
 
         <div id="datos"></div>
       <!-- Footer  -->       
@@ -59,7 +59,3 @@
     </div>
   </div>
 </div>
-
-
-
-

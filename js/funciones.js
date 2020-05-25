@@ -1,4 +1,4 @@
-
+var contadorg;
 /* Funciones de Inventario */
 function validacion_eliminar(id){
     alertify.confirm('Eliminar producto', '¿Está seguro de eliminar este producto?', 
@@ -61,6 +61,7 @@ $(document).on('keyup','#id_busqueda', function(){
 $(document).ready(function(){
     var i = 0;
     var j = 0;
+    var contador = 0;
     $('#add').click(function () {
         i++;
         $('#dynamic_field').append('<tr id="row'+i+'">' +
@@ -73,6 +74,19 @@ $(document).ready(function(){
         var nombre = document.getElementById("producto_id").value;
         console.log(document.getElementById("producto"+i));
         document.getElementById("producto"+i).value = nombre;
+
+        //Funcion para importe
+        /*
+        function total(){
+            var cantidad=document.getElementById('cantidad'+i).value;
+            var precio=document.getElementById('precio'+i).value;
+            var total=cantidad*precio;
+            document.getElementById('importe'+i).value = total;
+        }
+        //funcion para ejecutar el importe
+        setInterval(function(){
+            total();
+        },100);*/
     });
                 
         $(document).on('click', '.btn_remove', function () {
@@ -92,3 +106,8 @@ $(document).ready(function(){
             });
         });
 })
+
+
+    
+
+
