@@ -19,6 +19,7 @@
       <!-- Header  -->
         <?php include("header.php"); ?>
       <!-- Busqueda  -->
+      <div class="search2">
         <div class="navbar navbar-light bg-light">
           <form class="form-inline">
             <input class="form-control mr-sm-2" type="text" placeholder="Busqueda" name="busqueda" id="id_busqueda">
@@ -27,6 +28,7 @@
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#add">Agregar
           </button>
         </div>
+      </div>
 
         <div id="datos"></div>
       <!-- Footer  -->       
@@ -36,6 +38,7 @@
     <script src="librerias/bootstrap/js/bootstrap.js"></script>
     <script src="librerias/alertifyjs/alertify.js"></script>
     <script src="js/funciones.js"></script>
+    <script src='js/footer.js'></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </html>
 
