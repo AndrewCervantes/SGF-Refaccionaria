@@ -46,13 +46,14 @@ nav ul li a{
   font-size: 20px;
   padding: 7px 13px;
   border-radius: 3px;
+  text-decoration: none!important;
 }
 
 a.active,a:hover{
   background: #1b9bff;
   transition: .5s;
   color: #f2f2f2;
-  text-decoration: none;
+  text-decoration: none!important;
 }
 
 label.titles{
@@ -193,3 +194,8 @@ h5{
   font-weight: lighter!important;
   margin-top: 7px;
 }
+
+.carru{
+  margin: 40px 100px 30px 100px!important;
+}
+

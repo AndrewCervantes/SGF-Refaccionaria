@@ -20,17 +20,19 @@
 
 
 <!--Formulario-->
-<form id="formulario" style="font-size: 11px;">
-    
-    <h4>Domicilio Fiscal:</h4>
+<form id="formulario" style="font-size: 11px;" >
+    <div class="gen">
+
+    <h4 class="gen">Domicilio Fiscal:</h4>
     <p id="ubicacion">Carr. Fed.Mex - Pachuca km 32 </p>
     <p>Col. Loma Bonita, Tecamac, Edo. Mex</p>
     <p>MOIR7004139D0</p>
     <P>24-89-02-61</P>
+    </div>
 
-    <p id="sv">--------------------------------------------------------------</p>
+    <p id="sv"> --------------------------------------------------------------</p>
 
-    <h4 id="sv">----------------------Super Vocho------------------------</h4>
+    <h4 id="sv">---------------------- Super Vocho ------------------------</h4>
     <p id="Datos">Tienda No: 01</p>
     <p id="Datos">Caja: 01</p>
     <p id="Datos">Nota de vta:01</p>

@@ -67,8 +67,8 @@ $(document).ready(function(){
         $('#dynamic_field').append('<tr id="row'+i+'">' +
                                                 '<td><input class="form-control" id="producto'+i+'" type="text" name="producto[]"  ></td>' +
                                                 '<td><input class="form-control" id="descripcion'+i+'" type="text" name="descripcion[]"></td>' +
-                                                '<td><input class="form-control" id="cantidad'+i+'" type="text" name="cantidad[]"></td>'+
-                                                '<td><input class="form-control" id="precio'+i+'" type="text" name="precio[]"></td>'+
+                                                '<td><input class="form-control" id="cantidad'+i+'" type="text"name="cantidad[]" onkeypress="solonumeros(event);" ></td>'+
+                                                '<td><input class="form-control" id="precio'+i+'" type="text" name="precio[]" onkeypress="solonumeros(event);"></td>'+
                                                 '<td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td>' +
                                                 '</tr>');
         var nombre = document.getElementById("producto_id").value;
@@ -109,5 +109,11 @@ $(document).ready(function(){
 
 
     
-
+function solonumeros(e){
+         var key = window.event ? e.which : e.keyCode;
+                        if(key < 46 || key > 57 ||key ==47){
+                            e.preventDefault();
+                                    alertify.error("Favor de introducir un numero",2.5);                               
+                        }
+                    }
 
