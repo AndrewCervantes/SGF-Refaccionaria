@@ -6,6 +6,16 @@
     $precios = ($_POST['precio']);
     $total = 0;
     $importe = 0;
+
+    if(empty($producto)&& empty($cantidades) && empty($precios)){
+        echo  '<script type="text/javascript">     
+        alert("No se puede generar una nota");
+        window.location.href="Factura.php";
+        </script>';
+    }
+    else {
+    
+
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -21,60 +31,57 @@
 
 <!--Formulario-->
 <form id="formulario" style="font-size: 11px;" >
-    <div class="gen">
-
+    <div class="gen" style="width:270px; text-align:center;">
+    <br>
+    <img src="vochon.png" style="width:70px; height:70px;">
+    <h3 id="sv">------------ Super Vocho -------------</h3>
     <h4 class="gen">Domicilio Fiscal:</h4>
-    <p id="ubicacion">Carr. Fed.Mex - Pachuca km 32 </p>
-    <p>Col. Loma Bonita, Tecamac, Edo. Mex</p>
-    <p>MOIR7004139D0</p>
-    <P>24-89-02-61</P>
+    <p id="ubicacion">Carr. Fed.Mex - Pachuca km 32 <br>Col. Loma Bonita, Tecamac, Edo. Mex<br>MOIR7004139D0<br>24-89-02-61</p>
+  
     </div>
 
-    <p id="sv"> --------------------------------------------------------------</p>
+    <h3 id="sv"> ---------------------------------------</h3>
 
-    <h4 id="sv">---------------------- Super Vocho ------------------------</h4>
+   
     <p id="Datos">Tienda No: 01</p>
     <p id="Datos">Caja: 01</p>
     <p id="Datos">Nota de vta:01</p>
-    <p id="Datos">Fecha:
-        <script>
-            var f = new Date();
-            if (f.getMonth()<10) {
-                document.write(f.getDate() + "/0" + (f.getMonth() +1) + "/" + f.getFullYear());
-            }
-            else{
-                document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-            }
-        </script>
+    <p>
+        <?php
+            // Obteniendo la fecha actual del sistema con PHP
+            date_default_timezone_set('America/Mexico_city');
+            $fecha = date("d-m-Y");
+            echo "Fecha: $fecha" . "\n";
+        ?>
     </p>
-    <p id="Datos">Hora:
-        <script>
-            var d = new Date();
-            if(d.getHours()<10){
-                document.write("0"+ d.getHours() + ":" + (d.getMinutes() +1) + ":" + d.getSeconds());
-            }
-            else{
-                document.write(d.getHours() + ":" + (d.getMinutes() +1) + ":" + d.getSeconds());
-            }
-        </script>
+    <p>
+        <?php
+            date_default_timezone_set('America/Mexico_city');
+            $hora = date("H:i:s");
+            echo "Hora: $hora" . "\n";
+        ?>
     </p>
-    <p id="Datos">Numero de factura 
-        <script>
-            var i=1;
-            document.write(i)
-        </script>
+    </p>
+    <p id="Datos">Numero de factura: 
+        <?php
+            $query = mysqli_query($conexion, "SELECT  COUNT(id_nota) AS id FROM nota");
+             $result = mysqli_fetch_assoc($query);
+            $num = $result['id'] +1;
+        ?>
+        <b><?php echo $num; ?></b>
 
     </p>
 
     <!-Tabla de productos-->
     <table>
         <thead>
-            <td id="producto" class="pro">Producto &nbsp</td>
+            <td id="producto" class="pro">Producto&nbsp</td>
             <td id="cant">Cantidad &nbsp</td>
             <td id="precio">Precio &nbsp</td>
             <td id="total">Importe &nbsp</td>
         </thead>
         <tbody>
+        <h3 id="sv"> ---------------------------------------</h3>
         
 <?php
     ////SEPARAR VALORES DE ARRAYS, EN ESTE CASO SON 4 ARRAYS UNO POR CADA INPUT (PRODUCTO, DESCRIPCION, CANTIDAD, PRECIO)////
@@ -117,15 +124,34 @@
 			<tr>
 				<td id="producto" style="text-align: center;"  class="pro"><?php echo $pro; ?> <br><?php echo $des; ?></td>
 				<td id="cant" style="text-align: center;"><?php  echo $cant;   ?></td>
-				<td id="precio" style="text-align: center;"><?php echo $pre;   ?></td>
-				<td id="importe" style="text-align: center;">$ <?php echo $imp;0 ?>.00</td>
-                <p id="sv">--------------------------------------------------------------</p>
+               
+                        
+				<td id="precio" style="text-align: center;">$<?php echo number_format($pre, 2, ",", ""); ?></td>
+                <td id="importe" style="text-align: center;">$ <?php echo number_format($imp, 2, ",", "");?></td>
+                
+
+
+                
 			</tr>
             
         <?php
-
-
-
+        //Query de ingresar datos //
+        /*$query = mysqli_query($conexion, "INSERT INTO vendidos (producto, descripcion, cantidad, precio) VALUES ('$valores')");
+        //$query = mysqli_query($conexion,"INSERT INTO producto(producto) VALUES ('$producto')");
+        if (!$query) {
+            echo  '<script type="text/javascript">     
+            alert("Mal");
+            
+            </script>';
+        }
+        else{
+            echo  '<script type="text/javascript">     
+            alert("Registro exitoso");
+            
+            </script>';
+        }
+        //  sqlRes = $conexion -> mysqli_query($sql);
+        */
         if($producto === false && $descripcion === false && $cantidad === false && $precio === false){
             break;
         }
@@ -134,25 +160,30 @@
 ?>
     </tbody>
 		</table>
-		<p id="sv">--------------------------------------------------------------</p>
-		<p id="sv">Total												$ <?php echo $total;?>.00	</p>
-		<p id="sv">Doscientos Cuarenta Pesos</p>
-		<p id="sv">------------------Gracias por su compra-------------------</p>		
+		<h3 id="sv"> ---------------------------------------</h3>
+		<p id="sv">Total:												$ <?php echo number_format($total, 2, ",", "");?>	</p>
+		<h3 id="sv">-------" Gracias por su compra "--------</h3>		
 
-		
-		
 		
 	</form>
+    <?php
+        $query = mysqli_query($conexion,"INSERT INTO nota( fecha, hora, total) VALUES('$fecha','$hora','$total')");
+    ?> 
 
-	<!-Botones Externos al formulario-->
+	<!--Botones Externos al formulario-->
 	<p id="bo">
 		<input id="b" type="button" onclick="window.print()" value="Imprime tu pdf">
 	</p>
-
+        <input id="b" type="button"  onclick="nuevaNota()" value="Nueva Factura">
 </body>
-        </html>
+</html>
+<script>
+        function nuevaNota(){
+       //reload pagnia de inicio
+            location.href="Factura.php";
+        }
+        </script>
+
 <?php
-    
-    $sql= "INSERT INTO alumnos (, nombre, carrera, grupo) VALUES $valores";
-    
+    }
 ?>

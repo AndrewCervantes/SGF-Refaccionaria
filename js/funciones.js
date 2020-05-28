@@ -94,6 +94,7 @@ $(document).ready(function(){
             $('#row'+ id).remove();
         });
         
+        /*
         $('#submit').click(function(){
             $.ajax({
                 url:"generar.php",
@@ -104,7 +105,7 @@ $(document).ready(function(){
                     $('#add_name')[0].reset();
                 }
             });
-        });
+        });*/
 })
 
 
@@ -116,4 +117,7 @@ function solonumeros(e){
                                     alertify.error("Favor de introducir un numero",2.5);                               
                         }
                     }
+
+
+
 

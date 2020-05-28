@@ -67,43 +67,29 @@
                 <form name="add_name" id="add_name" class="container" action="generar.php" method="POST"> 
                     <p id="ubicacion">Carr. Fed.Méx - Pachuca km 32 Col. Loma Bonita, Tecamac, Edo. Mex</p>
                     <p id="Datos">Equipo: 1</p>
-                    <p id="Datos">Fecha:
-                        <script>
-                            var f = new Date();
-                            if (f.getMonth()<10) {
-                                document.write(f.getDate() + "/0" + (f.getMonth() +1) + "/" + f.getFullYear());
-                            }
-                            else{
-                                document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-                            }
-                        </script>
+                    <p>
+                        <?php
+                            // Obteniendo la fecha actual del sistema con PHP
+                            date_default_timezone_set('America/Mexico_city');
+                            $fecha = date("d-m-Y");
+                            echo "Fecha: $fecha" . "\n";
+                        ?>
                     </p>
-                    <p id="Datos">Hora:
-                        <script>
-                            var d = new Date();
-                            if(d.getMinutes()<10){
-                                if(d.getHours()<10){
-                                    document.write("0"+ d.getHours() + ":" + (d.getMinutes() +1) + ":" + d.getSeconds());
-                                }
-                                else{
-                                    document.write(d.getHours() + ":0" + (d.getMinutes() +1) + ":" + d.getSeconds());
-                                }   
-                            }
-                            else{
-                                if(d.getHours()<10){
-                                    document.write("0"+ d.getHours() + ":" + (d.getMinutes() +1) + ":" + d.getSeconds());
-                                }
-                                else{
-                                    document.write(d.getHours() + ":" + (d.getMinutes() +1) + ":" + d.getSeconds());
-                                }     
-                            }
-                        </script>
-                    </p>
-                    <p id="Datos">Numero de factura 
-                         <script>
-                            var i=1;
-                            document.write(i)
-                        </script>
+                    <p>
+                        <?php
+                            date_default_timezone_set('America/Mexico_city');
+                            $hora = date("H:i:s");
+                            echo "Hora: $hora" . "\n";
+                            ?>
+                     </p>
+                    <p id="Datos">Numero de factura: 
+                        <?php
+                            $query = mysqli_query($conexion, "SELECT  COUNT(id_nota) AS id FROM nota");
+                            $result = mysqli_fetch_assoc($query);
+                            $num = $result['id'] +1;
+                        ?>
+                        <b><?php echo $num; ?></b>
+
                     </p>
                     <input class="btn btn-info my-2 my-sm-0" type="submit" value="Generar Factura" id="submit">
                     <div class="table-responsive">
